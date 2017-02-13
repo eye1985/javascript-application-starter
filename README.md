@@ -2,13 +2,13 @@
 
 ## Install
 ```javascript
-npm install es6-babel-webpack-boilerplate
+git clone https://github.com/eye1985/es6-babel-webpack-boilerplate.git
+npm install
 npm start
 ```
-## Entry files
-index.html and app.js
 
 ## Usage:
 1. Run the install
 2. Go to localhost:8181
-3. Start coding in app.js
+3. Open app.js with your code editor
+4. Start coding :)
