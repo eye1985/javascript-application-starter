@@ -1,5 +1,8 @@
 # Boilerplate for ES6 + Babel + webpack
 
+## Requirements
+1. [node.js](https://nodejs.org) version 6
+
 ## Install
 ### Step 1
 Open your command line window and type:
