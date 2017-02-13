@@ -1,7 +1,15 @@
 # Boilerplate for ES6 + Babel + webpack
 
+A simple boilerplate for developing Javascript application in ES6.
+
+
 ## Requirements
 [Node.js](https://nodejs.org) version 6.
+
+## What is included in this boilerplate
+1. Babel 6
+2. Babel env preset
+3. Webpack and webpack dev server
 
 ## Install
 ### Step 1
