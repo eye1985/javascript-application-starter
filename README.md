@@ -25,5 +25,11 @@ Start the webpack-dev-server:
 npm start
 ```
 
+### Step 5
+Go to [http://localhost:8181](http://localhost:8181) with your browser of choice.
+
+## Step 6
+Open your favorite code editor and start coding.
+
 ## Configurations
 You can further customize your needs in webpack.config.js

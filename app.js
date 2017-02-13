@@ -1,6 +1,6 @@
 // Your scripting here
 
 document.addEventListener('DOMContentLoaded',function(){
-    const content = `<div>Hello content</div>`;
-    document.querySelector('h1').innerHTML = content;
+    const content = `Edit me in app.js`;
+    document.querySelector('#test').innerHTML = content;
 });
