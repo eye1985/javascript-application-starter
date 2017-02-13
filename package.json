@@ -1,6 +1,6 @@
 {
   "name": "es6-babel-webpack-boilerplate",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "A boilerplate for es6 and a simple dev server",
   "main": "app.js",
   "author": "Erik",
