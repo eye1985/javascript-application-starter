@@ -1,7 +1,7 @@
 # Boilerplate for ES6 + Babel + webpack
 
 ## Requirements
-1. [node.js](https://nodejs.org) version 6
+[Node.js](https://nodejs.org) version 6.
 
 ## Install
 ### Step 1
@@ -36,3 +36,4 @@ Open your favorite code editor and start coding.
 
 ## Configurations
 You can further customize your needs in webpack.config.js
+Hot reloading are enabled by default.
