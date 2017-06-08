@@ -1,20 +1,27 @@
 {
-  "name": "es6-babel-webpack-boilerplate",
-  "version": "1.0.0",
-  "description": "A boilerplate for es6 with webpack dev server.",
+  "name": "js-starter-kit",
+  "version": "2.0.0",
+  "description": "A starter pack for JS applications",
   "main": "app.js",
   "author": "Erik",
   "license": "MIT",
-  "scripts":{
-      "start":"webpack-dev-server --hot --inline",
-      "dev":"webpack -d",
-      "prod":"webpack -p"
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline --progress",
+    "dev": "npm run clean && cross-env NODE_ENV=development webpack -d",
+    "prod": "npm run clean && cross-env NODE_ENV=production webpack -p",
+    "clean" : "rimraf dist"
   },
   "devDependencies": {
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
-    "babel-preset-env": "^1.1.8",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0"
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.2",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "html-webpack-plugin": "^2.28.0",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.18.2",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
   }
 }

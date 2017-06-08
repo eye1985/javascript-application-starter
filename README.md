@@ -1,6 +1,6 @@
-# Boilerplate for ES6 + Babel + webpack
+# Javascript application starter-pack
 
-A simple boilerplate for developing Javascript application in ES6.
+A starter pack for developing Javascript application.
 
 
 ## Requirements
@@ -10,6 +10,7 @@ A simple boilerplate for developing Javascript application in ES6.
 1. Babel 6
 2. Babel env preset
 3. Webpack and webpack dev server
+4. CSS-loader and Style-loader 
 
 ## Install
 ### Step 1
@@ -37,7 +38,7 @@ npm start
 ```
 
 ### Step 5
-Go to [http://localhost:8181](http://localhost:8181) with your browser of choice.
+Go to [http://localhost:8181](http://localhost:3000) with your browser of choice.
 
 ## Step 6
 Open your favorite code editor and start coding.

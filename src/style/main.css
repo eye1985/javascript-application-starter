@@ -1,0 +1,21 @@
+:root{
+    --global-bg-color : #000;
+    --global-text-color: #fff;
+    --global-font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--global-bg-color);
+    color: var(--global-text-color);
+    font-family: var(--global-font-family);
+}
+
+.container {
+    max-width: 1200px;
+    overflow:auto;
+    margin: 0 auto;
+}
