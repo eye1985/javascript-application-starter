@@ -4,7 +4,7 @@ A starter pack for developing Javascript application.
 
 
 ## Requirements
-[Node.js](https://nodejs.org) version 6.
+[Node.js](https://nodejs.org) version 6.xx
 
 ## What is included in this boilerplate
 1. Babel 6
