@@ -6,7 +6,7 @@
   "author": "Erik",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --progress",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline --progress",
     "dev": "npm run clean && cross-env NODE_ENV=development webpack -d",
     "prod": "npm run clean && cross-env NODE_ENV=production webpack -p",
     "clean": "rimraf dist"
