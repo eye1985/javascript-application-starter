@@ -1,54 +1,84 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require("webpack");
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const isDevEnv = process.env.NODE_ENV !== 'production';
+const isDevelopment = process.env.NODE_ENV === "development";
+
+// filename: "[name].[contenthash].css",
+const extractSass = new MiniCssExtractPlugin({
+    filename: isDevelopment ? "[name].css":"[name].[contenthash].css",
+    disable: isDevelopment
+});
+
 const plugins = [
+    extractSass,
+    new webpack.DefinePlugin({
+        'process.env': {
+            NODE_ENV: JSON.stringify(isDevelopment ? 'development' : 'production')
+        }
+    }),
     new HtmlWebpackPlugin({
         template: './src/index.html'
     })
 ];
 
-if(!isDevEnv){
-    plugins.push(
-        new ExtractTextPlugin({
-            filename:'style.min.[contenthash].css'
-        })
-    )
-}
+const watch = isDevelopment ? true : false;
+
+const assetPublicPath = isDevelopment ? "" : "";
 
 module.exports = {
     plugins,
-    entry: "./src/app.js",
-    output:{
-        path: path.join(__dirname,'dist'),
-        filename:'app.min.[hash].js'
+    watch,
+
+    entry: {
+        "main": "./src/app.js",
     },
-    module : {
-        rules :[
+
+    output: {
+        path: path.join(__dirname, "dist"),
+        filename: "[name].min.js"
+    },
+
+    mode : isDevelopment ? 'development':'production',
+
+    module: {
+        rules: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: "babel-loader"
+        },
+
             {
-                test:/\.js$/,
-                exclude: /node_modules/,
-                loader : "babel-loader"
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader',
+                ],
             },
 
             {
-                test:/\.css$/,
-                include: path.join(__dirname, 'src/style'),
-                use: isDevEnv ? ['style-loader', 'css-loader'] : ExtractTextPlugin.extract({
-                    fallback:'style-loader',
-                    use : {
-                        loader : 'css-loader',
-                        options : {
-                            modules: true,
-                            localIdentName: '[path][name]__[local]--[hash:base64:5]'
-                        }
-                    }
-                })
+                test: /\.(ttf|eot|woff|woff2)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[ext]',
+                    publicPath: assetPublicPath
+                }
+            },
+
+            {
+                test: /\.(svg|jpg|jpeg|png|bmp)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'images/[name].[ext]',
+                    publicPath: assetPublicPath
+                }
             }
         ]
     },
+
     devServer :{
         contentBase: path.join(__dirname, 'dist'),
         compress:true,
@@ -56,4 +86,4 @@ module.exports = {
         hot:true,
         watchContentBase: true
     }
-};
+}
