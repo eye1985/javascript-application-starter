@@ -53,7 +53,7 @@ Hot reloading are enabled by default.
 
 ```javascript
 npm run dev // Creates a developer build under dist
-npm run prod // Creates a production build under dist
+npm run build // Creates a production build under dist
 npm run clean // Deletes the entire dist folder
 npm start // Starts the webpack-dev-server on port 3000
 ```
