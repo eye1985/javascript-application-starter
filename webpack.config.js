@@ -7,8 +7,7 @@ const isDevelopment = process.env.NODE_ENV === "development";
 
 // filename: "[name].[contenthash].css",
 const extractSass = new MiniCssExtractPlugin({
-    filename: isDevelopment ? "[name].css":"[name].[contenthash].css",
-    disable: isDevelopment
+    filename: isDevelopment ? "[name].css":"[name].[contenthash].css"
 });
 
 const plugins = [
@@ -23,14 +22,13 @@ const plugins = [
     })
 ];
 
+//Use this if you dont want dev server
 const watch = isDevelopment ? true : false;
 
 const assetPublicPath = isDevelopment ? "" : "";
 
 module.exports = {
     plugins,
-    watch,
-
     entry: {
         "main": "./src/app.js",
     },

@@ -4,15 +4,14 @@ A starter pack for developing Javascript application.
 
 
 ## Requirements
-[Node.js](https://nodejs.org) Latest LTS (10.x.x)
+[Node.js](https://nodejs.org) Latest LTS (14.x.x)
 
 ## What is included in this boilerplate
-1. Babel 7
-2. Babel env preset set to target ie10+
-3. Webpack and webpack dev server
-4. CSS-loader, style-loader, file-loader, and url-loader included
-5. CSS modules are enabled by default
-6. Post-CSS with autoprefixer and cssnano
+1. Babel
+2. Webpack and webpack dev server
+3. SASS support   
+4. CSS modules are enabled by default
+5. Post-CSS with autoprefixer and cssnano
 
 ## Install
 ### Step 1
