@@ -40,6 +40,7 @@ module.exports = {
 
     mode : isDevelopment ? 'development':'production',
 
+    //Alias for absolute path if needed
     resolve: {
         extensions: ['.js', ".scss", ".css"],
         alias: {
