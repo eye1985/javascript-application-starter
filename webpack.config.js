@@ -40,6 +40,14 @@ module.exports = {
 
     mode : isDevelopment ? 'development':'production',
 
+    resolve: {
+        extensions: ['.js', ".scss", ".css"],
+        alias: {
+            root: __dirname,
+            src: path.resolve(__dirname, 'src'),
+        },
+    },
+
     module: {
         rules: [{
             test: /\.js$/,
@@ -51,7 +59,13 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            modules: true
+                        }
+                    },
                     'postcss-loader',
                     'sass-loader',
                 ],
@@ -78,10 +92,11 @@ module.exports = {
     },
 
     devServer :{
-        contentBase: path.join(__dirname, 'dist'),
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
         compress:true,
         port:3000,
         hot:true,
-        watchContentBase: true
     }
 }
