@@ -25,8 +25,6 @@ const plugins = [
 //Use this if you dont want dev server
 const watch = isDevelopment ? true : false;
 
-const assetPublicPath = isDevelopment ? "" : "";
-
 module.exports = {
     plugins,
     entry: {
@@ -74,19 +72,17 @@ module.exports = {
 
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
-                loader: 'file-loader',
-                options: {
-                    name: 'fonts/[name].[ext]',
-                    publicPath: assetPublicPath
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[name].[ext]',
                 }
             },
 
             {
                 test: /\.(svg|jpg|jpeg|png|bmp)$/,
-                loader: 'file-loader',
-                options: {
-                    name: 'images/[name].[ext]',
-                    publicPath: assetPublicPath
+                type: 'asset/resource',
+                generator: {
+                    filename: 'images/[name].[ext]',
                 }
             }
         ]
