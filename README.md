@@ -12,6 +12,8 @@ A starter pack for developing Javascript application.
 3. SASS support   
 4. CSS modules are enabled by default
 5. Post-CSS with autoprefixer and cssnano
+6. ESLint extending the standard and prettier rules
+7. Prettier syntax formatter
 
 ## Install
 ### Step 1

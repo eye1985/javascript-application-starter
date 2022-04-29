@@ -2,6 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
@@ -12,6 +13,7 @@ const extractSass = new MiniCssExtractPlugin({
 
 const plugins = [
     extractSass,
+    new ESLintPlugin({}),
     new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: JSON.stringify(isDevelopment ? 'development' : 'production')
@@ -23,7 +25,7 @@ const plugins = [
 ];
 
 //Use this if you dont want dev server
-const watch = isDevelopment ? true : false;
+const watch = isDevelopment;
 
 const assetPublicPath = isDevelopment ? "" : "";
 
@@ -51,7 +53,10 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader:'css-loader',
+                        options:{ modules:true }
+                    },
                     'postcss-loader',
                     'sass-loader',
                 ],
@@ -78,10 +83,9 @@ module.exports = {
     },
 
     devServer :{
-        contentBase: path.join(__dirname, 'dist'),
+        static: path.join(__dirname, 'src'),
         compress:true,
         port:3000,
         hot:true,
-        watchContentBase: true
     }
 }
